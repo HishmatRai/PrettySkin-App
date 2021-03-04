@@ -10,6 +10,8 @@ import {
 import {
     LogIn,
     SignUp,
+    MyAccount,
+    Memberlist
 } from './../Screens/index';
 import {
     MaterialCommunityIcons,
@@ -43,7 +45,7 @@ function DrawerContent(props) {
                     )}
                     label="Message Us"
                     onPress={() => props.navigation.closeDrawer()}
-                    labelStyle={{ color: "white", marginLeft: 0,fontSize:20,letterSpacing:1 }}
+                    labelStyle={{ color: "white", marginLeft: 0, fontSize: 20, letterSpacing: 1 }}
                 />
                 <DrawerItem
                     icon={() => (
@@ -51,7 +53,7 @@ function DrawerContent(props) {
                     )}
                     label="Shop"
                     onPress={() => props.navigation.navigate("withdraw")}
-                    labelStyle={{ color: "white", marginLeft: 0 ,fontSize:20,letterSpacing:1}}
+                    labelStyle={{ color: "white", marginLeft: 0, fontSize: 20, letterSpacing: 1 }}
                 />
                 <DrawerItem
                     icon={() => (
@@ -59,7 +61,7 @@ function DrawerContent(props) {
                     )}
                     label="Member list"
                     onPress={() => props.navigation.navigate("toFriendSendScreen")}
-                    labelStyle={{ color: "white", marginLeft: 0,fontSize:20,letterSpacing:1 }}
+                    labelStyle={{ color: "white", marginLeft: 0, fontSize: 20, letterSpacing: 1 }}
                 />
                 <DrawerItem
                     icon={() => (
@@ -67,37 +69,37 @@ function DrawerContent(props) {
                     )}
                     label="Reminder / Task"
                     onPress={() => props.navigation.closeDrawer()}
-                    labelStyle={{ color: "white", marginLeft: 0 ,fontSize:20,letterSpacing:1}}
+                    labelStyle={{ color: "white", marginLeft: 0, fontSize: 20, letterSpacing: 1 }}
                 />
                 <DrawerItem
                     icon={() => <MaterialIcons name="account-box" size={24} color="white" />}
                     label="My Account"
                     onPress={() => props.navigation.navigate("profileScreen")}
-                    labelStyle={{ color: "white", marginLeft: 0,fontSize:20,letterSpacing:1 }}
+                    labelStyle={{ color: "white", marginLeft: 0, fontSize: 20, letterSpacing: 1 }}
                 />
-                    <DrawerItem
+                <DrawerItem
                     icon={() => <MaterialIcons name="forum" size={24} color="white" />}
                     label="Social Forum"
                     onPress={() => props.navigation.navigate("profileScreen")}
-                    labelStyle={{ color: "white", marginLeft: 0 ,fontSize:20,letterSpacing:1}}
+                    labelStyle={{ color: "white", marginLeft: 0, fontSize: 20, letterSpacing: 1 }}
                 />
-                    <DrawerItem
+                <DrawerItem
                     icon={() => <FontAwesome5 name="file-invoice" size={24} color="white" />}
                     label="Invoice"
                     onPress={() => props.navigation.navigate("profileScreen")}
-                    labelStyle={{ color: "white", marginLeft: 0,fontSize:20,letterSpacing:1 }}
+                    labelStyle={{ color: "white", marginLeft: 0, fontSize: 20, letterSpacing: 1 }}
                 />
-                    <DrawerItem
+                <DrawerItem
                     icon={() => <MaterialIcons name="announcement" size={24} color="white" />}
                     label="Announcement "
                     onPress={() => props.navigation.navigate("profileScreen")}
-                    labelStyle={{ color: "white", marginLeft: 0,fontSize:20,letterSpacing:1 }}
+                    labelStyle={{ color: "white", marginLeft: 0, fontSize: 20, letterSpacing: 1 }}
                 />
-                    <DrawerItem
+                <DrawerItem
                     icon={() => <MaterialIcons name="logout" size={24} color="white" />}
                     label="Log Out"
                     onPress={() => props.navigation.navigate("profileScreen")}
-                    labelStyle={{ color: "white", marginLeft: 0 ,fontSize:20,letterSpacing:1}}
+                    labelStyle={{ color: "white", marginLeft: 0, fontSize: 20, letterSpacing: 1 }}
                 />
             </DrawerContentScrollView>
         </View>
@@ -118,9 +120,9 @@ function DrawerNavigator() {
                     drawerIcon: () => <Ionicons name="home" size={24} color="white" />,
                     // inactiveTintColor: "white",
                     // activeTintColor: "white",
-                    
+
                 }}
-                
+
             />
         </Drawer.Navigator>
     );
@@ -129,14 +131,24 @@ function Navigation() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen
+                {/* <Stack.Screen
                     name="DrawerNavigator"
                     component={DrawerNavigator}
                     options={{ headerShown: false }}
-                />
-                <Stack.Screen
+                /> */}
+                {/* <Stack.Screen
                     name="SignUp"
                     component={SignUp}
+                    options={{ headerShown: false }}
+                /> */}
+                {/* <Stack.Screen
+                    name="MyAccount"
+                    component={MyAccount}
+                    options={{ headerShown: false }}
+                /> */}
+                  <Stack.Screen
+                    name="Memberlist"
+                    component={Memberlist}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>

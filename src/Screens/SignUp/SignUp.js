@@ -8,12 +8,13 @@ import {
     StatusBar,
     ScrollView,
     TouchableOpacity,
+    Image
 } from "react-native";
-import { Entypo, Ionicons, MaterialIcons, Zocial } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 
-const LogIn = (props) => {
+const SignUp = (props) => {
     const [dimensions, setDimensions] = useState({ window, screen });
 
     const onChange = ({ window, screen }) => {
@@ -30,54 +31,70 @@ const LogIn = (props) => {
     return (
         <View style={styles.container}>
             <StatusBar
-                barStyle="dark-content"
+                barStyle="white"
                 hidden={false}
-                backgroundColor="white"
+                backgroundColor="black"
                 translucent={true}
             />
             <View style={styles._main}>
-                <TouchableOpacity style={styles._back_icon_btn}>
-                    <Ionicons name="md-arrow-round-back" size={24} color="black" />
-                </TouchableOpacity>
+                <View style={{ flexDirection: "row", marginTop: 20, alignItems: "center" }}>
+                    <TouchableOpacity>
+                        <Entypo name="menu" size={24} color="white" onPress={() => props.navigation.toggleDrawer()} />
+                    </TouchableOpacity>
+                    <Text style={{ color: "white", letterSpacing: 1, marginLeft: 20, fontSize: 19 }}>Create Account</Text>
+                </View>
                 <ScrollView showsVerticalScrollIndicator={false}>
-                    <View style={styles._logo}>
-                        <Entypo name="location" size={100} color="#33cc66" />
+                    <Text style={styles._heading}>PRETTY PRETTY SKIN</Text>
+                    <View style={styles._logo_main}>
+                        <Image source={require('./../../images/signuplogo.png')} style={styles._logo} />
                     </View>
                     <View style={{ marginTop: 20 }}>
                         <View style={styles._input_main}>
-                            <View style={styles._email_icons_view}>
-                                <MaterialIcons name="email" size={24} color="#777777" />
+                            <View style={{flexDirection:"row"}}>
+                                <View style={styles._email_input_view3}>
+                                    <TextInput
+                                        style={styles._input}
+                                        placeholder="First Name"
+                                        placeholderTextColor="white"
+                                    />
+                                </View>
+                                <View style={styles._email_input_view4}>
+                                    <TextInput
+                                        style={styles._input}
+                                        placeholder="Last Name"
+                                        placeholderTextColor="white"
+                                    />
+                                </View>
                             </View>
                             <View style={styles._email_input_view}>
                                 <TextInput
                                     style={styles._input}
-                                    placeholder="Email Address"
-                                    placeholderTextColor="black"
+                                    placeholder="Email"
+                                    placeholderTextColor="white"
                                 />
                             </View>
-                        </View>
-                        <View style={styles._input_main}>
-                            <View style={styles._email_icons_view}>
-                                <MaterialIcons name="lock" size={24} color="#777777" />
-                            </View>
-                            <View style={styles._email_input_view}>
+                            <View style={styles._email_input_view2}>
                                 <TextInput
                                     style={styles._input}
                                     placeholder="Password"
+                                    placeholderTextColor="white"
                                     secureTextEntry={true}
-                                    placeholderTextColor="black"
                                 />
                             </View>
                         </View>
+
                     </View>
-                    <View>
-                        <TouchableOpacity style={styles._forgot_btn}>
-                            <Text style={styles._forgot_btn_text}>Forgot password?</Text>
+                    <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate("")}>
+                        <Text style={styles._button_txt}>Create account</Text>
+                    </TouchableOpacity>
+
+
+                    <View style={styles._create_account_main}>
+                        <Text style={styles._create_account_text}>Already have an account? </Text>
+                        <TouchableOpacity style={styles._create_account_btn}>
+                            <Text style={styles._create_account_btn_text}>Sign In</Text>
                         </TouchableOpacity>
                     </View>
-                    <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate("LogIn")}>
-                        <Text style={styles._button_txt}>SignUP</Text>
-                    </TouchableOpacity>
                     <View style={{ marginBottom: 50 }}></View>
                 </ScrollView>
             </View>
@@ -88,90 +105,109 @@ const LogIn = (props) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "white",
+        backgroundColor: "black",
     },
     _main: {
         margin: 20,
     },
-    _back_icon_btn: {
+    _heading: {
+        color: "white",
+        alignItems: "center",
+        alignSelf: "center",
+        width: "100%",
+        textAlign: "center",
+        fontSize: 35,
+        marginTop: 20
+    },
+    _logo_main: {
+        alignItems: "center",
         marginTop: 20,
     },
     _logo: {
-        alignItems: "center",
-        marginTop: 40,
+        width: 139,
+        height: 139,
+        alignSelf: "center"
     },
     _input_main: {
-        flexDirection: "row",
-        borderRadius: 20,
-        backgroundColor: "#f5f5f5",
-        // borderWidth: 1,
-        borderRadius: 50,
+        borderRadius: 5,
+        backgroundColor: "black",
         alignItems: "center",
-        padding: 10,
         marginTop: 20,
     },
-    _email_icons_view: {
-        // backgroundColor: "red",
-        width: "10%",
-    },
     _email_input_view: {
-        // backgroundColor: "green",
-        width: "90%",
+        width: "100%",
+        borderColor: "white",
+        borderWidth: 1,
+        padding: 10
+    },
+    _email_input_view2: {
+        width: "100%",
+        borderBottomLeftRadius: 5,
+        borderBottomRightRadius: 5,
+        borderColor: "white",
+        borderWidth: 1,
+        padding: 10
+
+    },
+    _email_input_view3: {
+        width: "50%",
+        borderTopLeftRadius: 5,
+        borderColor: "white",
+        borderWidth: 1,
+        padding: 10
+
+    },
+    _email_input_view4: {
+        width: "50%",
+        borderTopRightRadius: 5,
+        borderColor: "white",
+        borderWidth: 1,
+        padding: 10
+
     },
     _input: {
         fontWeight: "bold",
-        color: "black",
+        color: "white",
     },
-    _forgot_btn: {
-        alignItems: "flex-end",
-        marginTop: 30,
-    },
-    _forgot_btn_text: {
-        letterSpacing: 1,
-    },
+
     button: {
-        backgroundColor: "#33cc66",
-        borderRadius: 50,
+        backgroundColor: "white",
+        borderRadius: 5,
         width: "100%",
         alignSelf: "center",
-        marginTop: 10,
+        marginTop: 30,
+        alignItems: "center"
     },
     _button_txt: {
         fontWeight: "bold",
         paddingTop: 15,
         paddingBottom: 15,
         textAlign: "center",
-        color: "white",
+        color: "black",
         fontSize: 18,
-        letterSpacing: 2,
+        letterSpacing: 1,
     },
-    _or: {
-        textAlign: "center",
-        color: "#777777",
-        // fontWeight:"bold",
-        fontSize: 25,
-        marginTop: 10,
-    },
-    _fb_button: {
-        backgroundColor: "#2672cb",
-        borderRadius: 50,
-        width: "100%",
-        alignSelf: "center",
-        marginTop: 10,
+
+
+    _create_account_main: {
         flexDirection: "row",
-        justifyContent: "space-around",
-        alignItems: "center",
+        alignContent: "center",
+        alignSelf: "center",
+        alignSelf: "center",
+        marginTop: 30
     },
-    _fb_button_txt: {
-        fontWeight: "bold",
-        paddingTop: 15,
-        paddingBottom: 15,
-        textAlign: "center",
+    _create_account_text: {
+        color: "white",
+        fontSize: 16
+    },
+    _create_account_btn: {
+
+    },
+    _create_account_btn_text: {
         color: "white",
         fontSize: 18,
-        letterSpacing: 0.5,
-        paddingRight: 10,
-    },
+        fontWeight: "bold"
+    }
 });
 
-export default LogIn;
+export default SignUp;

@@ -45,7 +45,7 @@ const LogIn = (props) => {
                 </View>
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={styles._logo_main}>
-                        <Image source={require('./../../images/logo.png')} style={styles._logo} />
+                        <Image source={require('./../../images/loginlogo.png')} style={styles._logo} />
                     </View>
                     <View style={{ marginTop: 20 }}>
                         <View style={styles._input_main}>
@@ -99,18 +99,18 @@ const styles = StyleSheet.create({
     },
     _logo_main: {
         alignItems: "center",
-        marginTop: 40,
+        marginTop: 20,
     },
     _logo: {
-        width: 150,
-        height: 150,
+        width: 217,
+        height: 217,
         alignSelf: "center"
     },
     _input_main: {
         borderRadius: 5,
         backgroundColor: "black",
         alignItems: "center",
-        marginTop: 20,
+        marginTop: 10,
     },
     _email_input_view: {
         width: "100%",
