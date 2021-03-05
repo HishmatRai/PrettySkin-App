@@ -11,7 +11,7 @@ import {
     Image,
     ImageBackground
 } from "react-native";
-import { Entypo, Ionicons, Feather, MaterialIcons } from "@expo/vector-icons";
+import { Entypo, Ionicons, Feather, MaterialIcons, EvilIcons, AntDesign, FontAwesome5 } from "@expo/vector-icons";
 import StarRating from './../../Components/StartRating/StartRating'
 import { block } from "react-native-reanimated";
 const window = Dimensions.get("window");
@@ -76,8 +76,8 @@ const Messages = (props) => {
                                 <Ionicons name="search-outline" size={24} color="#717171" />
                             </TouchableOpacity>
                         </View>
-                            <ScrollView horizontal={true}>
-                        <View style={styles._all_user_show_main}>
+                        <ScrollView horizontal={true}>
+                            <View style={styles._all_user_show_main}>
                                 {UsersList.map((v, i) => {
                                     return (
                                         <View style={styles._user_main}>
@@ -91,8 +91,55 @@ const Messages = (props) => {
                                         </View>
                                     )
                                 })}
+                            </View>
+                        </ScrollView>
+                        <View style={styles.card_main}>
+                            <View style={styles._header_main}>
+                                <View style={styles._prfile_main}>
+                                    <Image source={require('./../../images/user_profile.png')} style={styles.post_profile_image} />
+                                </View>
+                                <View style={styles._user_name_main}>
+                                    <View style={{ flexDirection: "row", alignItems: "center" }}>
+                                        <TouchableOpacity>
+                                            <Ionicons name="caret-back-outline" size={14} color="black" />
+                                        </TouchableOpacity>
+                                        <Text style={styles._post_user_name}>John Smith</Text>
+                                    </View>
+                                    <Text style={styles._address}>New York, USA</Text>
+                                </View>
+                                <View style={styles._time_main}>
+                                    <TouchableOpacity style={{ flexDirection: "row", alignItems: "center" }}>
+                                        <Text>2m</Text>
+                                        <EvilIcons name="chevron-down" size={24} color="black" />
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                            <View>
+                                <Text style={styles._post_des}>Contrary To Popular Belief, Lorem Ipsum
+                                Is Not Simply Random Text. It Has Roots
+                                In A Piece Of Classical Latin Literature
+                                From 45 BC, Making It Over 2000 Years
+                                Old. Richard Mcclintock, A Latin Professor At Hampden..... More</Text>
+                            </View>
+                            <View style={styles._like_counter_main}>
+                                <AntDesign name="heart" size={14} color="black" />
+                                <Text style={styles._like_counter_show}>1</Text>
+                            </View>
+                            <View style={styles._like_button_main}>
+                                <TouchableOpacity style={styles._like_btn}>
+                                    <AntDesign name="hearto" size={14} color="#707070" />
+                                    <Text style={styles._btn_text}>Like</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles._like_btn}>
+                                    <FontAwesome5 name="comment" size={24} color="#707070" />
+                                    <Text style={styles._btn_text}>1 comment</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles._like_btn}>
+                                    <FontAwesome5 name="share" size={14} color="#707070" />
+                                    <Text style={styles._btn_text}>Share</Text>
+                                </TouchableOpacity>
+                            </View>
                         </View>
-                            </ScrollView>
                     </View>
                 </ScrollView>
             </View>
@@ -165,7 +212,72 @@ const styles = StyleSheet.create({
         alignSelf: "center",
         marginTop: -80,
         marginLeft: 50
+    },
+    card_main: {
+        backgroundColor: "white",
+        borderRadius: 5,
+        padding: 15,
+    },
+    _header_main: {
+        flexDirection: "row",
+
+    },
+    _prfile_main: {
+        width: "20%",
+    },
+    _user_name_main: {
+        width: "60%",
+    },
+    _time_main: {
+        width: "20%",
+    },
+    post_profile_image: {
+        height: 50,
+        width: 50,
+        borderRadius: 50
+    },
+    _post_user_name: {
+        fontSize: 15,
+        color: "black",
+    },
+    _address: {
+        fontSize: 11,
+        color: "black",
+        marginLeft: 13
+    },
+    _post_des: {
+        fontSize: 12,
+        color: "black",
+        marginLeft: 30,
+        marginTop: 10
+    },
+    _like_counter_main: {
+        flexDirection: "row",
+        alignItems: "center",
+        marginTop: 10,
+        marginLeft: "20%"
+    },
+    _like_counter_show: {
+        marginLeft: 10
+    },
+    _btn_text: {
+        fontSize: 10,
+        color: "#707070",
+        marginLeft: 10
+    },
+    _like_button_main: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        width: "70%",
+        alignSelf: "center",
+        marginTop: 10
+    },
+    _like_btn: {
+        flexDirection: "row",
+        alignItems: "center"
     }
+
+
 
 });
 

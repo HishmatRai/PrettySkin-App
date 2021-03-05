@@ -78,7 +78,7 @@ const LogIn = (props) => {
 
                     <View style={styles._create_account_main}>
                         <Text style={styles._create_account_text}>Don't have an account? </Text>
-                        <TouchableOpacity style={styles._create_account_btn}>
+                        <TouchableOpacity style={styles._create_account_btn} onPress={() => props.navigation.navigate("SignUp")}>
                             <Text style={styles._create_account_btn_text}>Create account</Text>
                         </TouchableOpacity>
                     </View>

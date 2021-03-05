@@ -76,7 +76,7 @@ function DrawerContent(props) {
                 <DrawerItem
                     icon={() => <MaterialIcons name="account-box" size={24} color="white" />}
                     label="My Account"
-                    onPress={() => props.navigation.navigate("profileScreen")}
+                    onPress={() => props.navigation.navigate("MyAccount")}
                     labelStyle={{ color: "white", marginLeft: 0, fontSize: 20, letterSpacing: 1 }}
                 />
                 <DrawerItem
@@ -107,63 +107,59 @@ function DrawerContent(props) {
         </View>
     );
 }
-const Drawer = createDrawerNavigator();
-function DrawerNavigator() {
-    return (
-        <Drawer.Navigator
-            drawerContent={(props) => <DrawerContent {...props} />}
-            drawerStyle={{ width: "100%" }}
-        >
-            <Drawer.Screen
-                name="Home"
-                component={LogIn}
-                options={{
-                    drawerLabel: "Home",
-                    drawerIcon: () => <Ionicons name="home" size={24} color="white" />,
-                    // inactiveTintColor: "white",
-                    // activeTintColor: "white",
 
-                }}
-
-            />
-        </Drawer.Navigator>
-    );
-}
 function Navigation() {
     return (
-        <NavigationContainer>
-            <Stack.Navigator>
-                {/* <Stack.Screen
-                    name="DrawerNavigator"
-                    component={DrawerNavigator}
-                    options={{ headerShown: false }}
-                /> */}
-                {/* <Stack.Screen
-                    name="SignUp"
-                    component={SignUp}
-                    options={{ headerShown: false }}
-                /> */}
-                {/* <Stack.Screen
-                    name="MyAccount"
-                    component={MyAccount}
-                    options={{ headerShown: false }}
-                /> */}
-                {/* <Stack.Screen
+
+        <Stack.Navigator>
+            {/* <Stack.Screen
+                name="DrawerNavigator"
+                component={LogIn}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="SignUp"
+                component={SignUp}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="MyAccount"
+                component={MyAccount}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
                     name="Memberlist"
                     component={Memberlist}
                     options={{ headerShown: false }}
-                /> */}
-                {/* <Stack.Screen
+                />
+            <Stack.Screen
                     name="Announcement"
                     component={Announcement}
                     options={{ headerShown: false }}
                 /> */}
-                <Stack.Screen
+            <Stack.Screen
                     name="Messages"
                     component={Messages}
                     options={{ headerShown: false }}
                 />
-            </Stack.Navigator>
+        </Stack.Navigator>
+    );
+}
+
+const Drawer = createDrawerNavigator();
+function DrawerNavigator() {
+    return (
+        <NavigationContainer>
+            <Drawer.Navigator
+                drawerContent={(props) => <DrawerContent {...props} />}
+                drawerStyle={{ width: "100%" }}
+                overlayColor="grey"
+            >
+                <Drawer.Screen
+                    name="Home"
+                    component={Navigation}
+                />
+            </Drawer.Navigator>
         </NavigationContainer>
     );
 }
@@ -194,4 +190,4 @@ const styles = StyleSheet.create({
         borderWidth: 1
     }
 })
-export default Navigation;
+export default DrawerNavigator;
