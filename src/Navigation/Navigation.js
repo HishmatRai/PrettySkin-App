@@ -11,7 +11,9 @@ import {
     LogIn,
     SignUp,
     MyAccount,
-    Memberlist
+    Memberlist,
+    Announcement,
+    Messages
 } from './../Screens/index';
 import {
     MaterialCommunityIcons,
@@ -146,9 +148,19 @@ function Navigation() {
                     component={MyAccount}
                     options={{ headerShown: false }}
                 /> */}
-                  <Stack.Screen
+                {/* <Stack.Screen
                     name="Memberlist"
                     component={Memberlist}
+                    options={{ headerShown: false }}
+                /> */}
+                {/* <Stack.Screen
+                    name="Announcement"
+                    component={Announcement}
+                    options={{ headerShown: false }}
+                /> */}
+                <Stack.Screen
+                    name="Messages"
+                    component={Messages}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>
