@@ -53,10 +53,10 @@ const Announcement = (props) => {
                         <Text style={{ color: "white", letterSpacing: 1, marginLeft: 20, fontSize: 19 }}>Announcement</Text>
                     </View>
                     <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("MyAccount")}>
                             <Image source={require('./../../images/myaccountprofile.png')} style={styles._my_account_profile_images} />
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Notifications")}>
                             <Ionicons name="md-notifications" size={24} color="white" />
                         </TouchableOpacity>
                     </View>

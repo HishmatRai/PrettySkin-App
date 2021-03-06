@@ -84,14 +84,14 @@ const SignUp = (props) => {
                         </View>
 
                     </View>
-                    <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate("")}>
+                    <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate("Home")}>
                         <Text style={styles._button_txt}>Create account</Text>
                     </TouchableOpacity>
 
 
                     <View style={styles._create_account_main}>
                         <Text style={styles._create_account_text}>Already have an account? </Text>
-                        <TouchableOpacity style={styles._create_account_btn}>
+                        <TouchableOpacity style={styles._create_account_btn} onPress={() => props.navigation.navigate("LogIn")}>
                             <Text style={styles._create_account_btn_text}>Sign In</Text>
                         </TouchableOpacity>
                     </View>

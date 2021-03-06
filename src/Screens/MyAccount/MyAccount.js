@@ -50,7 +50,7 @@ const MyAccount = (props) => {
                         <TouchableOpacity>
                             <Image source={require('./../../images/myaccountprofile.png')} style={styles._my_account_profile_images} />
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Notifications")}>
                             <Ionicons name="md-notifications" size={24} color="white" />
                         </TouchableOpacity>
                     </View>
